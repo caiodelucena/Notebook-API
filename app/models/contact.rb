@@ -6,6 +6,10 @@ class Contact < ApplicationRecord
   end
 
   def as_json(option = {})
-    super(methods: :author)
+    super(
+      except: [:kind_id],
+      methods: :author,
+      include: { kind: { only: :description } } 
+    )
   end
 end
