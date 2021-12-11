@@ -50,7 +50,8 @@ module Api
         def contact_params
           params.require(:contact).permit(
             :name, :email, :birthdate, :kind_id,
-            phones_attributes: [:id, :number]
+            phones_attributes: [:id, :number], 
+            address_attibutes: [:street, :city, :contact_id]
           )
         end
     end    
