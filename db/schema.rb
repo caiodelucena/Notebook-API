@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_10_200748) do
+ActiveRecord::Schema.define(version: 2021_12_14_015856) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2021_12_10_200748) do
     t.string "name"
     t.string "email"
     t.date "birthdate"
-    t.integer "kind_id", null: false
+    t.integer "kind_id"
     t.index ["kind_id"], name: "index_contacts_on_kind_id"
   end
 
