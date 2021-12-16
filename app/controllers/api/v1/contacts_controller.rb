@@ -48,11 +48,12 @@ module Api
     
         # Only allow a list of trusted parameters through.
         def contact_params
-          params.require(:contact).permit(
-            :name, :email, :birthdate, :kind_id,
-            phones_attributes: [:id, :number, :_destroy], 
-            address_attibutes: [:street, :city, :contact_id]
-          )
+          # params.require(:contact).permit(
+          #   :name, :email, :birthdate, :kind_id,
+          #   phones_attributes: [:id, :number, :_destroy], 
+          #   address_attibutes: [:street, :city, :contact_id]
+          # )
+          ActiveModelSerializers::Deserialization.jsonapi_parse(params)
         end
     end    
   end
