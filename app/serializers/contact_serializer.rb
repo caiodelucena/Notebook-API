@@ -6,7 +6,7 @@ class ContactSerializer < ActiveModel::Serializer
   end
 
   has_many :phones do 
-    link(:related) { (api_v1_contact_kind_url(object.id) unless object.kind.nil?) }
+    link(:related) { (api_v1_contact_phones_url(object.id) unless object.phones.nil?) }
   end
   
   has_one :address
