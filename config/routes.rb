@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       resources :contacts do
         resource :kind, only: [:show]
         resource :phones, only: [:show] 
+        resource :address, only: [:show]
       end
       resources :kinds
     end

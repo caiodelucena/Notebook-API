@@ -9,7 +9,10 @@ class ContactSerializer < ActiveModel::Serializer
     link(:related) { (api_v1_contact_phones_url(object.id) unless object.phones.nil?) }
   end
   
-  has_one :address
+  has_one :address do 
+    link(:related) { (api_v1_contact_address_url(object.id) unless object.address.nil?) }
+  end
+  
 
   meta do {
     author: "Caio Lucena"
