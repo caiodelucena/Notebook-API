@@ -4,7 +4,11 @@ class ContactSerializer < ActiveModel::Serializer
   belongs_to :kind do 
     link(:related) { (api_v1_contact_kind_url(object.id) unless object.kind.nil?) }
   end
-  has_many :phones
+
+  has_many :phones do 
+    link(:related) { (api_v1_contact_kind_url(object.id) unless object.kind.nil?) }
+  end
+  
   has_one :address
 
   meta do {
