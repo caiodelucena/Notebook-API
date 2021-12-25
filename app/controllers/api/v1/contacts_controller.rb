@@ -1,6 +1,8 @@
 module Api
   module V1
     class ContactsController < ApplicationController
+      include ErrorSerializer
+
       before_action :set_contact, only: [:show, :update, :destroy]
     
       # GET /contacts
@@ -22,7 +24,7 @@ module Api
         if @contact.save
           render json: @contact, status: :created 
         else
-          render json: @contact.errors, status: :unprocessable_entity
+          render json: ErrorSerializer.serialize(@contact.errors), status: :unprocessable_entity
         end
       end
     
