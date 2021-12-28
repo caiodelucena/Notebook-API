@@ -14,7 +14,7 @@ module Api
     
       # GET /contacts/1
       def show
-        render json: @contact, include: [:kind]
+        render json: @contact # include: [:kind]
       end
     
       # POST /contacts
